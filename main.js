@@ -142,8 +142,8 @@ class Template extends utils.Adapter {
                 let monatkwh = (kwh / aktuellerTag) * 30.436875;
                 t.doStateCreate(serial + ".info" + ".kwh_monat", "kWh Vorschau Monat", "number",  "value", "kWh");
                 t.setState(serial + ".info" + ".kwh_monat", { val: Math.round(monatkwh), ack: true });
-                t.doStateCreate(serial + ".info" + ".grundpreis_monat", "Grundpreis Vorschau Monat", "number",  "value", "€");
-                t.setState(serial + ".info" + ".grundpreis_monat", { val: monatgrundpreis.toFixed(2), ack: true });
+                t.doStateCreate(serial + ".info" + ".gesamtpreis_monat", "Gesamtpreis Vorschau Monat", "number",  "value", "€");
+                t.setState(serial + ".info" + ".gesamtpreis_monat", { val: monatgrundpreis.toFixed(2), ack: true });
             } else { // error or non-200 status code
                 t.log.error("Connection_Failed");
             }
