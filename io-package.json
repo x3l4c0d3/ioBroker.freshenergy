@@ -1,0 +1,65 @@
+{
+    "common": {
+        "name": "freshenergy",
+        "version": "0.0.1",
+        "news": {
+            
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung"
+            }
+        },
+        "title": "FreshEnergy",
+        "titleLang": {
+            "en": "freshenergy adapter",
+            "de": "FreshEnergy Adapter"
+        },
+        "desc": {
+            "en": "adapter for freshenergy",
+            "de": "Adapter für FreshEnergy"
+        },
+        "authors": [
+            "x3l4 <x3l4@emailn.de>"
+        ],
+        "keywords": [
+            "ioBroker",
+            "fresh energy",
+            "Smart Home",
+            "home automation"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "freshenergy.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/x3l4c0d3/ioBroker.freshenergy/master/admin/freshenergy.png",
+        "readme": "https://github.com/x3l4c0d3/ioBroker.freshenergy/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "weather",
+        "compact": true,
+        "materialize": true,
+        "materializeTab": true,
+        "adminTab": {
+            "singleton": true,
+            "name": {
+                "en": "freshenergy",
+                "de": "freshenergy"
+            },
+            "link": "",
+            "fa-icon": "info"
+        },
+        "supportCustoms": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
