@@ -132,13 +132,15 @@ class Template extends utils.Adapter {
                 let kwh = maximum - minimum;
                 t.doStateCreate(serial + ".info" + ".kwh", "kWh", "number",  "value", "kWh");
                 t.setState(serial + ".info" + ".kwh", { val: kwh, ack: true });
-                let gesamtpreis = (kwh * parseFloat(t.config.arbeitspreis.replace(',','.'))) + parseFloat(t.config.grundpreis.replace(',','.'));
+                let gesamtpreis = (kwh * parseFloat(t.config.arbeitspreis.replace(',','.')));
+                let gesamtpreisink = gesamtpreis + parseFloat(t.config.grundpreis.replace(',','.'));
                 t.doStateCreate(serial + ".info" + ".gesamtpreis", "Gesamtpreis", "number",  "value", "€");
-                t.setState(serial + ".info" + ".gesamtpreis", { val: gesamtpreis.toFixed(2), ack: true });  
+                t.setState(serial + ".info" + ".gesamtpreis", { val: gesamtpreisink.toFixed(2), ack: true });  
                 t.doStateCreate(serial + ".info" + ".kwh_short", "kWh short", "number",  "value", "kWh");
                 t.setState(serial + ".info" + ".kwh_short", { val: Math.round(kwh), ack: true });
                 let aktuellerTag = aktuelleZeit.getDate();
                 let monatgrundpreis = (gesamtpreis / aktuellerTag) * 30.436875;
+                monatgrundpreis = monatgrundpreis + parseFloat(t.config.grundpreis.replace(',','.'));
                 let monatkwh = (kwh / aktuellerTag) * 30.436875;
                 t.doStateCreate(serial + ".info" + ".kwh_monat", "kWh Vorschau Monat", "number",  "value", "kWh");
                 t.setState(serial + ".info" + ".kwh_monat", { val: Math.round(monatkwh), ack: true });
