@@ -125,7 +125,7 @@ class Template extends utils.Adapter {
             if (!error && response.statusCode === 200) {
                 // we got a response
                 
-                const result = body;
+               const result = body;
                 const data = JSON.parse(result);
                 let maximum = data.energy.maximum / 10000000000;
                 let minimum = data.energy.minimum / 10000000000;
@@ -138,8 +138,7 @@ class Template extends utils.Adapter {
                 t.doStateCreate(serial + ".info" + ".kwh_short", "kWh short", "number",  "value", "kWh");
                 t.setState(serial + ".info" + ".kwh_short", { val: Math.round(kwh), ack: true });
                 let aktuellerTag = aktuelleZeit.getDate();
-                let monatgrundpreis = (gesamtpreis - parseFloat(t.config.grundpreis.replace(',','.') / aktuellerTag) * 30.436875;
-                monatgrundpreis = monatgrundpreis + parseFloat(t.config.grundpreis.replace(',','.');
+                let monatgrundpreis = (gesamtpreis / aktuellerTag) * 30.436875;
                 let monatkwh = (kwh / aktuellerTag) * 30.436875;
                 t.doStateCreate(serial + ".info" + ".kwh_monat", "kWh Vorschau Monat", "number",  "value", "kWh");
                 t.setState(serial + ".info" + ".kwh_monat", { val: Math.round(monatkwh), ack: true });
