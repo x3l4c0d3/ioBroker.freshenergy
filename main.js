@@ -138,7 +138,7 @@ class Template extends utils.Adapter {
                 t.doStateCreate(serial + ".info" + ".kwh_short", "kWh short", "number",  "value", "kWh");
                 t.setState(serial + ".info" + ".kwh_short", { val: Math.round(kwh), ack: true });
                 let aktuellerTag = aktuelleZeit.getDate();
-                let monatgrundpreis = ((gesamtpreis - parseFloat(t.config.grundpreis.replace(',','.')) / aktuellerTag) * 30.436875;
+                let monatgrundpreis = (gesamtpreis - parseFloat(t.config.grundpreis.replace(',','.') / aktuellerTag) * 30.436875;
                 monatgrundpreis = monatgrundpreis + parseFloat(t.config.grundpreis.replace(',','.');
                 let monatkwh = (kwh / aktuellerTag) * 30.436875;
                 t.doStateCreate(serial + ".info" + ".kwh_monat", "kWh Vorschau Monat", "number",  "value", "kWh");
